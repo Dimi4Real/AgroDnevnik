@@ -10,15 +10,16 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <SearchView
-            android:id="@+id/searchView"
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:queryHint="Pretraži parcele..."/>
+            android:text="Obavljeni radovi"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:padding="16dp"/>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerViewParcele"
+            android:id="@+id/recyclerViewRadovi"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="8dp"/>
@@ -26,12 +27,12 @@
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabDodaj"
+        android:id="@+id/fabDodajRad"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="16dp"
-        android:contentDescription="Dodaj parcelu"
+        android:contentDescription="Dodaj rad"
         app:srcCompat="@android:drawable/ic_input_add"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
