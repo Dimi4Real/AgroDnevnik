@@ -10,7 +10,7 @@ import com.example.agrodnevnik.model.Parcela;
 import com.example.agrodnevnik.model.Rad;
 
 // Registrujemo sve entitete (tabele) i postavljamo verziju baze
-@Database(entities = {Parcela.class, Rad.class}, version = 1)
+@Database(entities = {Parcela.class, Rad.class}, version = 2)
 public abstract class AppDatabase extends RoomDatabase {
 
     private static AppDatabase instance;

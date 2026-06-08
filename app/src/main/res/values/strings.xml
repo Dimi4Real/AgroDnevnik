@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">AgroDnevnik</string>
+    <string name="dodaj_parcelu">Dodaj parcelu</string>
+    <string name="dodaj_rad">Dodaj rad</string>
+    <string name="kalendar">Kalendar radova</string>
+    <string name="vremenska_prognoza">Vremenska prognoza</string>
 </resources>

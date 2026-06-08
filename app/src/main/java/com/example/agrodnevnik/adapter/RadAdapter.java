@@ -1,5 +1,6 @@
 package com.example.agrodnevnik.adapter;
 
+import android.graphics.drawable.GradientDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -7,6 +8,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.agrodnevnik.R;
@@ -18,7 +20,6 @@ public class RadAdapter extends RecyclerView.Adapter<RadAdapter.RadViewHolder> {
 
     private List<Rad> radovi;
 
-    // Interfejs sa metodama za izmenu i brisanje rada
     public interface OnRadClickListener {
         void onEditClick(Rad rad);
         void onDeleteClick(Rad rad);
@@ -44,12 +45,27 @@ public class RadAdapter extends RecyclerView.Adapter<RadAdapter.RadViewHolder> {
         Rad rad = radovi.get(position);
         holder.tipRadaTextView.setText(rad.tipRada);
         holder.datumTextView.setText(rad.datum);
-        holder.opisTextView.setText(rad.opis);
+        holder.opisTextView.setText(rad.opis != null ? rad.opis : "");
 
-        // Dugme za izmenu
+        // Postavljamo tekst i boju statusa
+        if ("Planiran".equals(rad.status)) {
+            holder.statusTextView.setText("📅 Planiran");
+            // Menjamo boju pozadine badge-a u narandzastu
+            GradientDrawable bg = (GradientDrawable) ContextCompat
+                    .getDrawable(holder.itemView.getContext(), R.drawable.bg_status).mutate();
+            bg.setColor(ContextCompat.getColor(
+                    holder.itemView.getContext(), R.color.status_planiran));
+            holder.statusTextView.setBackground(bg);
+        } else {
+            holder.statusTextView.setText("✅ Obavljen");
+            GradientDrawable bg = (GradientDrawable) ContextCompat
+                    .getDrawable(holder.itemView.getContext(), R.drawable.bg_status).mutate();
+            bg.setColor(ContextCompat.getColor(
+                    holder.itemView.getContext(), R.color.status_obavljen));
+            holder.statusTextView.setBackground(bg);
+        }
+
         holder.editButton.setOnClickListener(v -> listener.onEditClick(rad));
-
-        // Dugme za brisanje
         holder.deleteButton.setOnClickListener(v -> listener.onDeleteClick(rad));
     }
 
@@ -67,6 +83,7 @@ public class RadAdapter extends RecyclerView.Adapter<RadAdapter.RadViewHolder> {
         TextView tipRadaTextView;
         TextView datumTextView;
         TextView opisTextView;
+        TextView statusTextView;
         ImageButton editButton;
         ImageButton deleteButton;
 
@@ -75,6 +92,7 @@ public class RadAdapter extends RecyclerView.Adapter<RadAdapter.RadViewHolder> {
             tipRadaTextView = itemView.findViewById(R.id.textViewTipRada);
             datumTextView = itemView.findViewById(R.id.textViewDatum);
             opisTextView = itemView.findViewById(R.id.textViewOpis);
+            statusTextView = itemView.findViewById(R.id.textViewStatus);
             editButton = itemView.findViewById(R.id.buttonEdit);
             deleteButton = itemView.findViewById(R.id.buttonDelete);
         }

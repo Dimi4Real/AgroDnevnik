@@ -11,22 +11,26 @@ public class Rad {
     public int id;
 
     @ColumnInfo(name = "parcela_id")
-    public int parcelaId;         // kojoj parceli pripada ovaj rad
+    public int parcelaId;
 
     @ColumnInfo(name = "tip_rada")
-    public String tipRada;        // npr. "Oranje", "Đubrenje", "Prskanje"
+    public String tipRada;
 
     @ColumnInfo(name = "datum")
-    public String datum;          // kada je rad obavljen
+    public String datum;
 
     @ColumnInfo(name = "opis")
-    public String opis;           // detalji o radu
+    public String opis;
 
-    // Konstruktor
-    public Rad(int parcelaId, String tipRada, String datum, String opis) {
+    // Novo — "Obavljen" ili "Planiran"
+    @ColumnInfo(name = "status")
+    public String status;
+
+    public Rad(int parcelaId, String tipRada, String datum, String opis, String status) {
         this.parcelaId = parcelaId;
         this.tipRada = tipRada;
         this.datum = datum;
         this.opis = opis;
+        this.status = status;
     }
 }

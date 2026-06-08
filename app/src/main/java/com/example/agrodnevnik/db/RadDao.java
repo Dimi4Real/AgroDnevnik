@@ -28,4 +28,8 @@ public interface RadDao {
     // Obrisi rad
     @Delete
     void delete(Rad rad);
+
+    // Dohvati sve planirane radove iz svih parcela, sortirane po datumu
+    @Query("SELECT * FROM radovi WHERE status = 'Planiran' ORDER BY datum ASC")
+    List<Rad> getAllPlanirani();
 }

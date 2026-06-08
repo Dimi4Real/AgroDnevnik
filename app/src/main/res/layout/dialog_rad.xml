@@ -9,11 +9,11 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Naziv parcele *"
+        android:hint="Tip rada *"
         android:layout_marginBottom="8dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextNaziv"
+            android:id="@+id/editTextTipRada"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
@@ -22,25 +22,11 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Površina (ha)"
+        android:hint="Datum (dd.MM.yyyy)"
         android:layout_marginBottom="8dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextPovrsina"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="numberDecimal"/>
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Usev *"
-        android:layout_marginBottom="8dp">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextUsev"
+            android:id="@+id/editTextDatumRada"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
@@ -49,40 +35,45 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Datum setve (dd.MM.yyyy)"
-        android:layout_marginBottom="8dp">
+        android:hint="Opis rada"
+        android:layout_marginBottom="12dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextDatum"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Lokacija (npr. Pančevo)"
-        android:layout_marginBottom="8dp">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextLokacija"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Napomena">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextNapomena"
+            android:id="@+id/editTextOpisRada"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minLines="2"/>
 
     </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Status rada:"
+        android:textSize="14sp"
+        android:textColor="#555555"
+        android:layout_marginBottom="4dp"/>
+
+    <RadioGroup
+        android:id="@+id/radioGroupStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/radioObavljen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="✅ Obavljen"
+            android:checked="true"
+            android:layout_marginEnd="16dp"/>
+
+        <RadioButton
+            android:id="@+id/radioPlaniran"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="📅 Planiran"/>
+
+    </RadioGroup>
 
 </LinearLayout>

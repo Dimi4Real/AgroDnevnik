@@ -1,8 +1,13 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
+<resources>
     <style name="Base.Theme.AgroDnevnik" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">#2E7D32</item>
+        <item name="colorPrimaryVariant">#1B5E20</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="colorSecondary">#66BB6A</item>
+        <item name="colorOnSecondary">#FFFFFF</item>
+        <item name="colorSurface">#F1F8E9</item>
+        <item name="colorOnSurface">#1B5E20</item>
+        <item name="android:colorBackground">#F1F8E9</item>
     </style>
 
     <style name="Theme.AgroDnevnik" parent="Base.Theme.AgroDnevnik" />

@@ -11,26 +11,40 @@ public class Parcela {
     public int id;
 
     @ColumnInfo(name = "naziv")
-    public String naziv;          // npr. "Njiva kod reke"
+    public String naziv;
 
     @ColumnInfo(name = "povrsina")
-    public double povrsina;       // u hektarima
+    public double povrsina;
 
     @ColumnInfo(name = "usev")
-    public String usev;           // npr. "Kukuruz"
+    public String usev;
 
     @ColumnInfo(name = "datum_setve")
-    public String datumSetve;     // npr. "15.04.2025"
+    public String datumSetve;
 
     @ColumnInfo(name = "napomena")
-    public String napomena;       // opciona beleška
+    public String napomena;
 
-    // Konstruktor - poziva se kada pravimo novu parcelu
-    public Parcela(String naziv, double povrsina, String usev, String datumSetve, String napomena) {
+    // Novo — naziv mesta za vremensku prognozu
+    @ColumnInfo(name = "lokacija")
+    public String lokacija;
+
+    // Novo — koordinate koje se automatski popunjavaju
+    @ColumnInfo(name = "latitude")
+    public double latitude;
+
+    @ColumnInfo(name = "longitude")
+    public double longitude;
+
+    public Parcela(String naziv, double povrsina, String usev,
+                   String datumSetve, String napomena, String lokacija) {
         this.naziv = naziv;
         this.povrsina = povrsina;
         this.usev = usev;
         this.datumSetve = datumSetve;
         this.napomena = napomena;
+        this.lokacija = lokacija;
+        this.latitude = 0;
+        this.longitude = 0;
     }
 }
